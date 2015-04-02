@@ -17,6 +17,14 @@
 
     <string name ="drawer_close"> Close </string>
 
+
+    <!-- Splash Screen Strings -->
+    <string name ="splash_title">AwesomeCheckers</string>
+    <string name ="splash_title2">Checkers</string>
+
+    <string name ="splash_title_author">By Luis Pena</string>
+    <string name ="splash_title_description">A Pretty Sweet Checkers Game</string>
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

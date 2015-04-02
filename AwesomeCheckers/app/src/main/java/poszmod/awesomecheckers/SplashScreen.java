@@ -1,17 +1,48 @@
 package poszmod.awesomecheckers;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
+// For splash Screen
+// timer Task
+import java.util.Timer;
+import java.util.TimerTask;
+
+
 
 public class SplashScreen extends ActionBarActivity {
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen);
+
+
+        // Splash Screen timeout,
+        int timeout_Splash = 3000;
+
+        // Begin Splash Screen
+        //Set Circle loader time
+        Timer SplashLoader = new Timer();
+
+        TimerTask SplashDuration = new TimerTask() {
+
+            @Override
+            public void run() {
+                Intent i = new Intent(SplashScreen.this, MainActivity.class);
+                startActivity(i);
+
+                //close
+                finish();
+            }
+        }; SplashLoader.schedule(SplashDuration, timeout_Splash);
+
+
     }
 
 
