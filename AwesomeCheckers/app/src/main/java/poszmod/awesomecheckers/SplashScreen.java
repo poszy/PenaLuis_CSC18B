@@ -34,8 +34,8 @@ public class SplashScreen extends ActionBarActivity {
 
             @Override
             public void run() {
-                Intent i = new Intent(SplashScreen.this, MainActivity.class);
-                startActivity(i);
+                Intent intent = new Intent(SplashScreen.this, LoginActivity.class);
+                startActivity(intent);
 
                 //close
                 finish();
@@ -44,8 +44,6 @@ public class SplashScreen extends ActionBarActivity {
 
 
     }
-
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.

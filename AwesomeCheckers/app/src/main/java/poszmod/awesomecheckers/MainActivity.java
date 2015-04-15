@@ -43,13 +43,7 @@ public class MainActivity extends ActionBarActivity {
         // set up the drawerfragment class
 
         drawerFragment.setUp(R.id.fragment_navigation_drawer,(DrawerLayout)findViewById(R.id.drawer_layout), toolbar);
-
-
-
     }
-
-
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
