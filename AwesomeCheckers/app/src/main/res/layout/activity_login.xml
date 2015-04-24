@@ -60,19 +60,18 @@
 
 
         <EditText
-            android:id="@+id/Username"
+            android:id="@+id/email"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
             android:background="#FFF"
-            android:hint="@string/registration_hint_Username"
+            android:hint="@string/registration_hint_email"
             android:inputType="textEmailAddress"
             android:padding="10dp"
             android:singleLine="true"
             android:textColorHint="#CCC"
             android:textColor="#000"
-
-            android:text="@string/registration_hint_Username" />
+ />
 
         <EditText
             android:id="@+id/password"
@@ -87,7 +86,7 @@
             android:textColorHint="#CCC"
             android:textColor="#000"
 
-            android:text="@string/registration_hint_password" />
+             />
 
         <!-- Login Button -->
 

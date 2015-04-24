@@ -7,36 +7,41 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context="poszmod.awesomecheckers.SplashScreen">
+    tools:context="poszmod.awesomecheckers.SplashScreen"
+    android:background="#FFF">
 
     <TextView android:text="@string/splash_title" android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textSize="35dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:textSize="40dp"
-        android:layout_marginTop="178dp" />
+        android:layout_marginTop="96dp"
+        android:id="@+id/textView2" />
 
     <TextView android:text="@string/splash_title_description" android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
         android:textSize="20dp"
-        android:layout_marginTop="350dp" />
+        android:layout_below="@+id/textView2"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="60dp"
+        android:id="@+id/textView3" />
 
 
     <TextView android:text="@string/splash_title_author" android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
+        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="415dp" />
+        android:layout_marginBottom="37dp"
+        android:id="@+id/textView" />
 
     <ProgressBar
         android:id="@+id/ProgressBar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:backgroundTint="@color/primaryColor"
+        android:layout_below="@+id/textView3"
         android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:backgroundTint="@color/primaryColor">
+        android:layout_marginTop="76dp">
     </ProgressBar>
 
 </RelativeLayout>

@@ -15,8 +15,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:orientation="vertical"
-            android:paddingLeft="20dp"
-            android:paddingRight="20dp"
+            android:padding="10dp"
             >
 
         <TextView
@@ -34,7 +33,7 @@
         <TextView
             android:text="@string/registration_terms_code"
             android:layout_width="335dp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
             android:textSize="12dp"
@@ -42,7 +41,9 @@
             android:textColor="#004D40"
 
 
-            />
+            android:gravity="left"
+            android:inputType="none"
+            android:layout_margin="4dp" />
 
 
 
@@ -54,34 +55,21 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
                 android:background="#FFF"
-                android:hint="@string/registration_hint_Username"
+                android:hint="Full Name"
                 android:padding="10dp"
                 android:singleLine="true"
                 android:inputType="textCapWords"
                 android:textColor="#ccc"
                 android:textColorHint="#ddd" />
 
-            <EditText
-                android:id="@+id/email"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:background="#FFF"
-                android:hint="@string/registration_hint_email"
-                android:inputType="textEmailAddress"
-                android:padding="10dp"
-                android:singleLine="true"
-                android:textColor="#000"
-                android:textColorHint="#ddd" />
-
 
         <EditText
-            android:id="@+id/confirm_email"
+            android:id="@+id/email"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
             android:background="#FFF"
-            android:hint="@string/registration_hint_confirm_email"
+            android:hint="@string/registration_hint_email"
             android:inputType="textEmailAddress"
             android:padding="10dp"
             android:singleLine="true"
@@ -102,18 +90,6 @@
                 android:textColorHint="#CCC" />
 
 
-        <EditText
-            android:id="@+id/confirm_password"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:background="#FFF"
-            android:hint="@string/registration_hint_confirm_password"
-            android:inputType="textPassword"
-            android:padding="10dp"
-            android:singleLine="true"
-            android:textColor="#000"
-            android:textColorHint="#CCC" />
 
         <CheckBox
             android:id="@+id/TOU"
@@ -121,7 +97,7 @@
             android:layout_height="wrap_content"
             android:text="@string/registration_checkbox" />
 
-            <!-- Login Button -->
+
 
             <Button
                 android:id="@+id/btnRegister"
@@ -132,9 +108,18 @@
                 android:text="@string/registration_button"
                 android:textColor="#fff" />
 
-            <!-- Link to Login Screen -->
 
 
+        <!-- Link to Login Screen -->
+
+        <Button
+            android:id="@+id/launchLoginBtn"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dip"
+            android:background="#FFF"
+            android:text="Already a Member? Click here to Login"
+            android:textColor="@color/primaryColor" />
 
         </LinearLayout>
 
