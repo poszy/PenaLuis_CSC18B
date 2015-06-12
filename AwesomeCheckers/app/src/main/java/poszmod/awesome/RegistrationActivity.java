@@ -1,10 +1,9 @@
-package poszmod.awesomecheckers;
+package poszmod.awesome;
 
 
-import poszmod.awesomecheckers.NetworkUrl;
-import poszmod.awesomecheckers.AppController;
-import helper.SQLiteHandler;
-import helper.SessionManager;
+import manage.RegistrationValidation;
+import manage.SQLiteHandler;
+import manage.SessionManager;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -12,12 +11,14 @@ import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -31,7 +32,6 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
-
 public class RegistrationActivity extends ActionBarActivity {
 
 
@@ -39,13 +39,14 @@ public class RegistrationActivity extends ActionBarActivity {
 
     // Create Private buttons and variables that will be able to
     // Control the Login Activity
-    // The IDs are deined in activity_registration.xml
+    // The IDs are defined in activity_registration.xml
 
-    private Button register;                // id = btnRegister
-    private Button buttonLaunchLog;        //  id = launchLoginBtn
-    private EditText inputName;           //   id = name
-    private EditText inputEmail;         //    id = email
-    private EditText inputPassword ;    //     id = password
+    private Button register;                 // id = btnRegister
+    private Button buttonLaunchLog;         //  id = launchLoginBtn
+    private EditText inputName;            //   id = name
+    private EditText inputEmail;          //    id = email
+    private EditText inputPassword ;     //     id = password
+
 
     private ProgressDialog progressDialog;
     private SessionManager session;
@@ -55,13 +56,9 @@ public class RegistrationActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registration);
+        valFields();
 
-        // Assign GUI buttons
-        inputName = (EditText) findViewById(R.id.name);
-        inputEmail = (EditText) findViewById(R.id.email);
-        inputPassword = (EditText) findViewById(R.id.password);
-        register = (Button) findViewById(R.id.btnRegister);
-        buttonLaunchLog = (Button) findViewById(R.id.launchLoginBtn);
+
 
         // Add Progress Dialog in case the request hang
 
@@ -80,22 +77,33 @@ public class RegistrationActivity extends ActionBarActivity {
             Intent intent = new Intent(RegistrationActivity.this,
                     MainActivity.class);
             startActivity(intent);
+
             finish();
+
         }
 
         // Register Registration Button clicked event
 
         register.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
+
+                String password = inputPassword.getText().toString();
                 String name = inputName.getText().toString();
                 String email = inputEmail.getText().toString();
-                String password = inputPassword.getText().toString();
 
-                if (!name.isEmpty() && !email.isEmpty() && !password.isEmpty()) {
+
+
+                if (checkValidation() && checkSelectionExists() &&!name.isEmpty() && !email.isEmpty()&& !password.isEmpty()){
+
+
                     addUser(name, email, password);
-                } else {
+
+                }
+
+
+                else{
                     Toast.makeText(getApplicationContext(),
-                            "Please enter your credentials", Toast.LENGTH_LONG)
+                            "Please Correct All Errors Before Proceeding", Toast.LENGTH_LONG)
                             .show();
                 }
             }
@@ -112,7 +120,97 @@ public class RegistrationActivity extends ActionBarActivity {
             }
         });
 
+
+        //Make sure Checkbox is clicked
+
+
+
+
     } // end on create
+
+    private boolean checkSelectionExists() {
+        boolean selectionExists;
+        if ((boolean) ((CheckBox) findViewById(R.id.Terms)).isChecked()) selectionExists = true;
+        else selectionExists = false;
+
+        if (selectionExists == false){ Toast.makeText(getApplicationContext(),
+                "Please Agree To Terms", Toast.LENGTH_LONG)
+                .show();}
+
+
+
+        return selectionExists;
+    }
+
+    private void valFields(){
+
+        // Assign GUI Edtis
+
+
+
+        buttonLaunchLog = (Button) findViewById(R.id.launchLoginBtn);
+
+        inputName = (EditText) findViewById(R.id.name);
+        // TextWatcher would let us check validation error on the fly
+        inputName.addTextChangedListener(new TextWatcher() {
+            public void afterTextChanged(Editable s) {
+                RegistrationValidation.hasText(inputName);
+            }
+            public void beforeTextChanged(CharSequence s, int start, int count, int after){}
+            public void onTextChanged(CharSequence s, int start, int before, int count){}
+        });
+
+        inputEmail = (EditText) findViewById(R.id.email);
+        inputEmail.addTextChangedListener(new TextWatcher() {
+            // after every change has been made to this editText, we would like to check validity
+            public void afterTextChanged(Editable s) {
+                RegistrationValidation.isEmailAddress(inputEmail, true);
+            }
+            public void beforeTextChanged(CharSequence s, int start, int count, int after){}
+            public void onTextChanged(CharSequence s, int start, int before, int count){}
+        });
+
+        inputPassword = (EditText) findViewById(R.id.password);
+        inputPassword.addTextChangedListener(new TextWatcher() {
+            public void afterTextChanged(Editable s) {
+                RegistrationValidation.isPassword(inputPassword, false);
+            }
+            public void beforeTextChanged(CharSequence s, int start, int count, int after){}
+            public void onTextChanged(CharSequence s, int start, int before, int count){}
+        });
+
+        register = (Button) findViewById(R.id.btnRegister);
+        register.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                /*
+                Validation class will check the error and display the error on respective fields
+                but it won't resist the form submission, so we need to check again before submit
+                 */
+                if ( checkValidation () )
+                    submitForm();
+                else
+                    Toast.makeText(RegistrationActivity.this, "Form contains error", Toast.LENGTH_LONG).show();
+            }
+        });
+
+
+    }
+
+    private void submitForm() {
+        // Submit your form here. your form is valid
+        Toast.makeText(this, "Submitting form...", Toast.LENGTH_LONG).show();
+    }
+
+    private boolean checkValidation() {
+        boolean ret = true;
+
+        if (!RegistrationValidation.hasText(inputName)) ret = false;
+        if (!RegistrationValidation.isEmailAddress(inputEmail, true)) ret = false;
+        if (!RegistrationValidation.isPassword(inputPassword, false)) ret = false;
+
+        return ret;
+    }
 
     private void addUser(final String name, final String email, final String password){
         String tag_request_string = "req_register";

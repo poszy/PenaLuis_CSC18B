@@ -1,4 +1,4 @@
-package poszmod.awesomecheckers;
+package poszmod.awesome;
 
 import android.content.Intent;
 import android.support.v4.widget.DrawerLayout;
@@ -7,30 +7,20 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-
-
-import helper.SQLiteHandler;
-import helper.SessionManager;
-
+import manage.SQLiteHandler;
+import manage.SessionManager;
 import java.util.HashMap;
-
-import android.app.Activity;
-import android.content.Intent;
-import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-
-
-// Create Variables and buttons for User Logged in
-
-
 public class MainActivity extends ActionBarActivity {
 
+    // Create Variables and buttons for User Logged in
     private TextView txtName;
     private TextView txtEmail;
     private Button btnLogout;
+    public  Button buttonLaunchPlayerVPlayer;
 
     private SQLiteHandler db;
     private SessionManager session;
@@ -110,6 +100,12 @@ public class MainActivity extends ActionBarActivity {
         });
 
 
+        //Launch Game Method Checkerboard Activitys
+
+        //Player Vs Player
+        OnclickButtonListenerPlayerVPlayer();
+
+
     }
 
     @Override
@@ -139,6 +135,7 @@ public class MainActivity extends ActionBarActivity {
 
             startActivity(new Intent(this, SettingsActivity.class));
 
+
         }
 
         return super.onOptionsItemSelected(item);
@@ -155,5 +152,22 @@ public class MainActivity extends ActionBarActivity {
         Intent intent = new Intent(MainActivity.this, LoginActivity.class);
         startActivity(intent);
         finish();
+    }
+
+    // Method to launch Player Vs Player Checkerboard Activity VIA button
+    public void OnclickButtonListenerPlayerVPlayer(){
+
+        buttonLaunchPlayerVPlayer = (Button)findViewById(R.id.launchPlayerVPlayer);
+        buttonLaunchPlayerVPlayer.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(MainActivity.this, GameActivity.class);
+                        startActivity(intent);
+                    }
+                }
+
+        );
+
     }
 }

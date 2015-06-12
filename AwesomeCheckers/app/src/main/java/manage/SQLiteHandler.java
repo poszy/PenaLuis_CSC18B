@@ -1,4 +1,4 @@
-package helper;
+package manage;
 
 import java.util.HashMap;
 import android.content.ContentValues;
@@ -10,22 +10,21 @@ import android.util.Log;
 
 /**
  * Created by lu on 4/21/15.
+ * Code to store the user info in an SQL file,
+ * that way, if the user is offline,
+ * there user information is still displayed
+ * and they are not logged out automatically
  */
 public class SQLiteHandler extends SQLiteOpenHelper {
 
     private static final String TAG = SQLiteHandler.class.getSimpleName();
-
-    // All Static variables
-    // Database Version
     private static final int DATABASE_VERSION = 1;
-
-    // Database Name
-    private static final String DATABASE_NAME = "android_api";
-
-    // Login table name
+    private static final String DATABASE_NAME = "android";
     private static final String TABLE_LOGIN = "login";
 
-    // Login Table Columns names
+    // Tables in Remote Mysql Database
+    // Defined in poszmod.awesome.NetworkUrl
+
     private static final String KEY_ID = "id";
     private static final String KEY_NAME = "name";
     private static final String KEY_EMAIL = "email";
@@ -36,19 +35,22 @@ public class SQLiteHandler extends SQLiteOpenHelper {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 
-    // Creating Tables
     @Override
     public void onCreate(SQLiteDatabase db) {
+        // Create Sqlite File
+        // and create the tables
+
         String CREATE_LOGIN_TABLE = "CREATE TABLE " + TABLE_LOGIN + "("
                 + KEY_ID + " INTEGER PRIMARY KEY," + KEY_NAME + " TEXT,"
                 + KEY_EMAIL + " TEXT UNIQUE," + KEY_UID + " TEXT,"
                 + KEY_CREATED_AT + " TEXT" + ")";
         db.execSQL(CREATE_LOGIN_TABLE);
 
-        Log.d(TAG, "Database tables created");
+        Log.d(TAG, "Sql Lite Tables created");
     }
 
     // Upgrading database
+    // If user logs back in, create new file
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         // Drop older table if existed
@@ -58,9 +60,9 @@ public class SQLiteHandler extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    /**
-     * Storing user details in database
-     * */
+    //Store the User into the SQlite File
+    // Upon successful registration
+
     public void addUser(String name, String email, String uid, String created_at) {
         SQLiteDatabase db = this.getWritableDatabase();
 
@@ -69,60 +71,59 @@ public class SQLiteHandler extends SQLiteOpenHelper {
         values.put(KEY_EMAIL, email); // Email
         values.put(KEY_UID, uid); // Email
         values.put(KEY_CREATED_AT, created_at); // Created At
-
-        // Inserting Row
         long id = db.insert(TABLE_LOGIN, null, values);
-        db.close(); // Closing database connection
+
+        // Close Connection
+        db.close();
 
         Log.d(TAG, "New user inserted into sqlite: " + id);
     }
 
-    /**
-     * Getting user data from database
-     * */
+    // Get User data from newly created
+    // Sqlite File and get ready to display them
+
     public HashMap<String, String> getUserDetails() {
+
         HashMap<String, String> user = new HashMap<String, String>();
         String selectQuery = "SELECT  * FROM " + TABLE_LOGIN;
 
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
-        // Move to first row
+
+        // Loop through database
+        // and find
         cursor.moveToFirst();
         if (cursor.getCount() > 0) {
             user.put("name", cursor.getString(1));
             user.put("email", cursor.getString(2));
             user.put("uid", cursor.getString(3));
             user.put("created_at", cursor.getString(4));
-        }
+        } // end if
+
         cursor.close();
         db.close();
-        // return user
         Log.d(TAG, "Fetching user from Sqlite: " + user.toString());
 
-        return user;
+                        return user;
     }
 
-    /**
-     * Getting user login status return true if rows are there in table
-     * */
+
     public int getRowCount() {
-        String countQuery = "SELECT  * FROM " + TABLE_LOGIN;
+        String countQuery = "SELECT * FROM " + TABLE_LOGIN;
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery(countQuery, null);
         int rowCount = cursor.getCount();
         db.close();
         cursor.close();
-
-        // return row count
-        return rowCount;
+                        return rowCount;
     }
 
-    /**
-     * Re crate database Delete all tables and create them again
-     * */
+    // Delete Sqlite File
+    // If user logsout
     public void deleteUsers() {
         SQLiteDatabase db = this.getWritableDatabase();
-        // Delete All Rows
+
+        // Delete USer info from SQlite File
         db.delete(TABLE_LOGIN, null, null);
         db.close();
 

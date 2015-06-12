@@ -1,4 +1,4 @@
-package helper;
+package manage;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
@@ -6,14 +6,15 @@ import android.util.Log;
 
 /**
  * Created by lu on 4/21/15.
+ * Store User Session into a shared preferance
  */
+
 public class SessionManager {
 
     private static String TAG = SessionManager.class.getSimpleName();
 
-
+    // Define preferences vars
     SharedPreferences preferences;
-
     Editor editor;
     Context _context;
 
@@ -21,7 +22,7 @@ public class SessionManager {
     int PRIVATE_MODE = 0;
 
 
-    private static final String PREF_NAME = "AwesomeCheckersLogin";
+    private static final String PREF_NAME = "AwesomeLogin";
 
     private static final String KEY_IS_LOGGEDIN = "isLoggedIn";
 

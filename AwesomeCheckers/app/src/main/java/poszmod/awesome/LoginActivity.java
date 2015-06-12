@@ -1,4 +1,4 @@
-package poszmod.awesomecheckers;
+package poszmod.awesome;
 
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
@@ -8,9 +8,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
-import poszmod.awesomecheckers.NetworkUrl;
-import poszmod.awesomecheckers.AppController;
-import helper.SessionManager;
+import manage.SessionManager;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -18,13 +16,8 @@ import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import android.app.Activity;
 import android.app.ProgressDialog;
-import android.content.Intent;
-import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -187,9 +180,6 @@ public class LoginActivity extends ActionBarActivity {
             progressDialog.dismiss();
     }
 
-
-
-
     // Create Method that will launch Registration
     // activity
 
@@ -208,13 +198,7 @@ public class LoginActivity extends ActionBarActivity {
                }
            }
 
-
-
-
    );
-
-
-
 
     }
 

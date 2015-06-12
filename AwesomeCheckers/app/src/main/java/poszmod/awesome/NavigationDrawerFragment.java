@@ -1,4 +1,4 @@
-package poszmod.awesomecheckers;
+package poszmod.awesome;
 
 
 import android.content.Context;
@@ -12,15 +12,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.util.HashMap;
+import java.util.List;
 
 
-/**
- * A simple {@link Fragment} subclass.
- *
- *
- */
 public class NavigationDrawerFragment extends Fragment {
 
+    // Set List View Variables
     // Preference value that needs to be passed to the reference method
 
     public static final String PREF_FILE_NAME = "testpref";
@@ -36,8 +34,6 @@ public class NavigationDrawerFragment extends Fragment {
 
     private DrawerLayout mDrawerLayout;
 
-    //
-
 
     // Variable that will determine if the user is aware of the NavigationDrawer
     private boolean mUserLearnedDrawer;
@@ -47,6 +43,9 @@ public class NavigationDrawerFragment extends Fragment {
     private boolean mFromSavedInstanceState;
 
     private View containerView;
+
+    private List<String> listDataHeader;
+    private HashMap<String, List<String>> listDataChild;
 
     public NavigationDrawerFragment() {
         // Required empty public constructor
@@ -68,8 +67,11 @@ public class NavigationDrawerFragment extends Fragment {
 
             mFromSavedInstanceState=true;
         }
-    }
 
+
+
+
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -127,9 +129,9 @@ public class NavigationDrawerFragment extends Fragment {
         }
         mDrawerLayout.setDrawerListener(mDrawerToggle);
 
-        mDrawerLayout.post(new Runnable(){
+        mDrawerLayout.post(new Runnable() {
 
-            public void run(){
+            public void run() {
 
                 // create menu icon for home
                 mDrawerToggle.syncState();
@@ -159,4 +161,9 @@ public class NavigationDrawerFragment extends Fragment {
 
 
     } // end readToPreferences
+
+
+
+
+
 }

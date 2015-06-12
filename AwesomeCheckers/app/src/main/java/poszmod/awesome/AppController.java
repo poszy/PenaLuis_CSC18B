@@ -1,4 +1,4 @@
-package poszmod.awesomecheckers;
+package poszmod.awesome;
 
 import android.app.Application;
 import android.text.TextUtils;

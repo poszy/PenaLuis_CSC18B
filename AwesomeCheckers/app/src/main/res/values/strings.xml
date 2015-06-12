@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">AwesomeCheckers</string>
+    <string name="app_name">Awesome</string>
     <string name="title_activity_main">Home</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
@@ -18,12 +18,12 @@
 
 
     <!-- Splash Screen Strings -->
-    <string name ="splash_title">Awesome Checkers</string>
+    <string name ="splash_title">Awesome</string>
     <string name ="splash_title2">Checkers</string>
 
-    <string name ="splash_title_author">By Luisito Pena</string>
+    <string name ="splash_title_author">By Luis Pena</string>
     <string name ="splash_title_author_boast"> A Brown Rooster Production: Luisito Pena</string>
-    <string name ="splash_title_description">A Pretty Sweet Checkers Game</string>
+    <string name ="splash_title_description"> Just An Awesome, App</string>
 
 
     <!-- Registration Strings -->
@@ -38,18 +38,76 @@
     <string name="registration_new"> New Member? Click Here to Register </string>
 
     <string name ="registration_terms_title">Notice Of Registration </string>
-    <string name ="registration_terms_code"> This application, being AwesomeCheckers may or may not use and expose your phone\'s location.
-    If this application does expose your location, the Author, With the legal name "Luis Miguel Pena", has the right to find your location and has the right to
-    Roundhouse kick you in the face. By clicking agree you are also acknowledging that AwesomeCheckers may sell your mouth to the butthole
-    of another AwesomeCheckers user,Awesomecheckers and its subsidiaries, may also, if necessary sow yet another persons mouth onto to your butthole
-    making you a being sharing one gastrol track. This allows for a better user experience</string>
+    <string name ="registration_terms_code">
+        Awesome App Copyright (C) 2015  Luis Pena
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see http://www.gnu.org/licenses </string>
 
 
     <!-- Checkbox Strings -->
     <string name ="registration_checkbox">I Agree to terms of use</string>
 
 
-    <!-- TODO: Remove or change this placeholder text -->
+    <!-- Game Strings -->
+    <string name ="move_your">Your Move</string>
+    <string name ="move_begin"> Your begin</string>
+    <string name ="move_playertwo">Player 2 Turn</string>
+    <string name ="move_tie"> Tie Game!</string>
+    <string name ="move_player1victory"> Congrats you won!</string>
+    <string name ="move_player2victory"> Player 2 won!</string>
+
+
+    <string name ="uno">    1 </string>
+    <string name ="dos">    2 </string>
+    <string name ="tres">   3 </string>
+    <string name ="quatro"> 4 </string>
+    <string name ="cinco">  5 </string>
+    <string name ="sais">   6 </string>
+    <string name ="siete">  7 </string>
+    <string name ="ocho">   8 </string>
+    <string name ="nueve">   9 </string>
+    <string name ="playerone"> Player 1: </string>
+    <string name ="playertwo"> Player 2: </string>
+
+    <string name ="playertie">    Ties: </string>
+
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_checker_board">CheckerBoardActivity</string>
+    <string name="info">yup</string>
+    <string name="open">open</string>
+    <string name="close">close</string>
+
+
+
+
+    <string-array name="menu_navigation_general_items">
+        <item>Home</item>
+        <item>My Profile</item>
+        <item>New Game</item>
+        <item>Settings</item>
+        <item>About</item>
+        <item>More Apps</item>
+        <item>Contact</item>
+        <item>LogOut</item>
+    </string-array>
+
+
+
+
+
+
+
+
 
 </resources>

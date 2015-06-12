@@ -1,24 +1,28 @@
-package poszmod.awesomecheckers;
+package poszmod.awesome;
 
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 
-public class GameActivity extends ActionBarActivity {
+public class ErrorLoginActivity extends NavigationGeneralActivity implements View.OnClickListener {
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_game);
+        setContentView(R.layout.activity_error_login);
+
+
     }
 
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_game, menu);
+        getMenuInflater().inflate(R.menu.menu_error_login, menu);
         return true;
     }
 
@@ -35,5 +39,10 @@ public class GameActivity extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onClick(View v) {
+
     }
 }

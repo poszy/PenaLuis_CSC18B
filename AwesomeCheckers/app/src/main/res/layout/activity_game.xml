@@ -1,12 +1,185 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context="poszmod.awesomecheckers.GameActivity">
+<android.support.v4.widget.DrawerLayout
 
-    <TextView android:text="@string/hello_world" android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+    android:id="@+id/drawer_layout"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFF"
+    android:label= "Tic Tic Toe Player Vs AI"
+    tools:context="poszmod.awesome.GameActivity"
+    android:orientation="horizontal">
 
-</RelativeLayout>
+    <LinearLayout
+
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical">
+
+
+
+
+        <TableLayout
+              android:id="@+id/playArea"
+              android:layout_width="match_parent"
+              android:layout_height="467dp"
+              android:layout_marginTop="0dp"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:layout_gravity="center_horizontal">
+
+            <TableRow
+              android:id="@+id/tableRow1"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:gravity="center_horizontal" >
+               <Button
+                  android:id="@+id/one"
+                  android:layout_width="100dp"
+                  android:layout_height="100dp"
+                  android:text="@string/uno"
+                  android:textSize="70dp" />
+
+                <Button
+                  android:id="@+id/two"
+                  android:layout_width="100dp"
+                  android:layout_height="100dp"
+                  android:text="@string/dos"
+                  android:textSize="70dp" />
+
+                <Button
+                  android:id="@+id/three"
+                  android:layout_width="100dp"
+                  android:layout_height="100dp"
+                  android:text="@string/tres"
+                  android:textSize="70dp" />
+              </TableRow>
+
+              <TableRow
+                android:id="@+id/tableRow2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal" >
+
+                <Button
+                  android:id="@+id/four"
+                  android:layout_width="100dp"
+                  android:layout_height="100dp"
+                  android:text="@string/quatro"
+                  android:textSize="70dp" />
+
+                <Button
+                  android:id="@+id/five"
+                  android:layout_width="100dp"
+                  android:layout_height="100dp"
+                  android:text="@string/cinco"
+                  android:textSize="70dp" />
+
+                <Button
+                  android:id="@+id/six"
+                  android:layout_width="100dp"
+                  android:layout_height="100dp"
+                  android:text="@string/sais"
+                  android:textSize="70dp" />
+              </TableRow>
+
+              <TableRow
+                android:id="@+id/tableRow3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal" >
+
+                <Button
+                  android:id="@+id/seven"
+                  android:layout_width="100dp"
+                  android:layout_height="100dp"
+                  android:text="@string/siete"
+                  android:textSize="70dp" />
+
+                <Button
+                  android:id="@+id/eight"
+                  android:layout_width="100dp"
+                  android:layout_height="100dp"
+                  android:text="@string/ocho"
+                  android:textSize="70dp" />
+
+                <Button
+                  android:id="@+id/nine"
+                  android:layout_width="100dp"
+                  android:layout_height="100dp"
+                 android:text="@string/nueve"
+                  android:textSize="70dp" />
+              </TableRow>
+
+            <TableRow
+              android:id="@+id/tableRow4"
+              android:layout_width="wrap_content"
+              android:layout_height="110dp"
+              android:layout_marginTop="10dp"
+              android:gravity="center_horizontal"
+                android:layout_gravity="bottom">
+
+                <TextView
+                android:id="@+id/humanCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp" />
+
+                <TextView
+                android:id="@+id/androidCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                  android:id="@+id/player"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:text="@string/playerone"
+                    android:layout_column="0" />
+
+                <TextView
+                  android:id="@+id/ties"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                 android:text="@string/playertie"
+                    android:layout_column="1" />
+
+                <TextView
+                  android:id="@+id/playertwo"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:text="@string/playertwo"
+                    android:layout_column="2" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                >
+
+                <TextView
+                android:id="@+id/info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                    android:layout_column="1"
+                    android:text="INFO" />
+            </TableRow>
+
+        </TableLayout>
+
+
+
+    </LinearLayout>
+
+
+
+    </android.support.v4.widget.DrawerLayout>

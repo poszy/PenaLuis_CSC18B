@@ -1,49 +1,47 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin"
     android:background="#FFF"
-    tools:context="poszmod.awesomecheckers.RegistrationActivity">
-
+    android:padding = "14dp"
+    android:scrollbars="none"
+    tools:context="poszmod.awesome.RegistrationActivity">
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
+
             android:orientation="vertical"
-            android:padding="10dp"
-            >
+
+        >
 
         <TextView
             android:text="@string/registration_terms_title"
-            android:layout_width="335dp"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
             android:textSize="20dp"
-            android:layout_marginTop="4dp"
             android:textColor="#004D40"
 
 
             />
         <TextView
             android:text="@string/registration_terms_code"
-            android:layout_width="335dp"
+            android:layout_width="fill_parent"
             android:layout_height="match_parent"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
             android:textSize="12dp"
-            android:layout_marginTop="4dp"
+            android:layout_marginTop="1dp"
             android:textColor="#004D40"
 
 
-            android:gravity="left"
+            android:gravity="center|left"
             android:inputType="none"
-            android:layout_margin="4dp" />
+            android:layout_margin="1dp" />
 
 
 
@@ -59,7 +57,7 @@
                 android:padding="10dp"
                 android:singleLine="true"
                 android:inputType="textCapWords"
-                android:textColor="#ccc"
+                android:textColor="#000"
                 android:textColorHint="#ddd" />
 
 
@@ -76,6 +74,20 @@
             android:textColor="#000"
             android:textColorHint="#ddd" />
 
+
+        <!-- <EditText
+            android:id="@+id/emailVal"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:background="#FFF"
+            android:hint="Confirm Email"
+            android:inputType="textEmailAddress"
+            android:padding="10dp"
+            android:singleLine="true"
+            android:textColor="#000"
+            android:textColorHint="#ddd" />
+            -->
             <EditText
                 android:id="@+id/password"
                 android:layout_width="fill_parent"
@@ -91,8 +103,23 @@
 
 
 
+        <!--
+        <EditText
+            android:id="@+id/passwordVal"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:background="#FFF"
+            android:hint="Confirm Password"
+            android:inputType="textPassword"
+            android:padding="10dp"
+            android:singleLine="true"
+            android:textColor="#000"
+            android:textColorHint="#CCC" />
+        -->
+
         <CheckBox
-            android:id="@+id/TOU"
+            android:id="@+id/Terms"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/registration_checkbox" />
@@ -127,4 +154,4 @@
 
 
 
-</RelativeLayout>
+</ScrollView>

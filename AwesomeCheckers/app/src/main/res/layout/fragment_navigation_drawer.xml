@@ -5,16 +5,25 @@
 
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#EEE"
+    android:background="#FFF"
 
-    tools:context="poszmod.awesomecheckers.NavigationDrawerFragment">
+    tools:context="poszmod.awesome.NavigationDrawerFragment">
 
     <!-- TODO: Update blank fragment layout -->
 
     <TextView
 
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Options"
+        android:id="@+id/textView4" />
+
+    <ListView
+        android:id="@+id/listView1"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Options" />
+        android:layout_height="wrap_content" >
+    </ListView>
+
+
 
 </RelativeLayout>

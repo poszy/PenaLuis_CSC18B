@@ -1,4 +1,4 @@
-package poszmod.awesomecheckers;
+package poszmod.awesome;
 
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
@@ -8,9 +8,6 @@ import android.view.MenuItem;
 
 // For splash Screen
 // timer Task
-import java.util.Timer;
-import java.util.TimerTask;
-
 
 
 public class SplashScreen extends ActionBarActivity {
@@ -24,26 +21,42 @@ public class SplashScreen extends ActionBarActivity {
 
 
         // Splash Screen timeout,
-        int timeout_Splash = 3000;
+       // int timeout_Splash = 3000;
 
         // Begin Splash Screen
         //Set Circle loader time
-        Timer SplashLoader = new Timer();
+        //Timer SplashLoader = new Timer();
 
-        TimerTask SplashDuration = new TimerTask() {
+        //TimerTask SplashDuration = new TimerTask()
+
+        Thread Splash = new Thread(){
 
             @Override
             public void run() {
-                Intent intent = new Intent(SplashScreen.this, LoginActivity.class);
-                startActivity(intent);
+                try{
+                    sleep(5*1000);
+                    Intent intent = new Intent(SplashScreen.this, LoginActivity.class);
+                    startActivity(intent);
 
-                //close
-                finish();
+                    //close
+                    finish();
+
+                } catch (Exception e){
+
+                }
+
             }
-        }; SplashLoader.schedule(SplashDuration, timeout_Splash);
+        }; //SplashLoader.schedule(SplashDuration, timeout_Splash);
 
+        Splash.start();
 
     }
+
+    @Override
+    protected void onDestroy(){
+        super.onDestroy();
+    }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
